@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,11 +43,16 @@ jobs:
       # Step 5: Upload Reports
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: reports
-          path: target/*
+          name: test-reports
+          path: |
+            target/karate-reports/
+            target/cucumber-html-reports/
+            target/surefire-reports/
     
-      - name: Upload report to GitHub Pages
+      - name: Deploy reports to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
