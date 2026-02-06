@@ -1,3 +1,4 @@
+// This file is part of the "Karate" project,
 Feature: Comments API Tests
 
   Background:
