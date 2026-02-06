@@ -1,5 +1,8 @@
 # Karate API Testing Framework
 
+![Karate Tests](https://github.com/sivaprkolli/KarateDemo/workflows/Karate%20API%20Tests/badge.svg)
+![CI Matrix](https://github.com/sivaprkolli/KarateDemo/workflows/CI%20Matrix%20Tests/badge.svg)
+
 This project demonstrates API testing using Karate Framework with sample tests for JSONPlaceholder API.
 
 ## Project Structure
@@ -123,6 +126,35 @@ This framework tests the JSONPlaceholder API:
 - **Background**: Reusable setup steps
 - **Configuration Management**: Environment-specific settings
 - **Test Organization**: Modular feature files and runners
+- **CI/CD Integration**: GitHub Actions workflows for automated testing
+- **HTML Reports**: Cucumber and Karate HTML reports with detailed results
+
+## CI/CD with GitHub Actions
+
+This project includes multiple GitHub Actions workflows:
+
+### 1. Karate API Tests (`.github/workflows/karate-tests.yml`)
+- Triggers on push/pull request to main and develop branches
+- Runs tests on Ubuntu with Java 11
+- Generates and uploads HTML reports as artifacts
+- Creates test summary in GitHub Actions UI
+
+### 2. CI Matrix Tests (`.github/workflows/ci-matrix.yml`)
+- Tests across multiple operating systems (Ubuntu, Windows, macOS)
+- Tests with multiple Java versions (11, 17)
+- Runs weekly on schedule
+- Ensures cross-platform compatibility
+
+### 3. Test Report Publisher (`.github/workflows/test-report.yml`)
+- Publishes test results as GitHub Check
+- Provides detailed test report in PR comments
+- Automatically triggered after test workflow completion
+
+### Viewing CI/CD Results
+- Go to the **Actions** tab in your GitHub repository
+- Click on any workflow run to see details
+- Download HTML reports from the **Artifacts** section
+- View test summaries directly in the workflow output
 
 ## Extending Tests
 
@@ -131,6 +163,7 @@ To add new tests:
 2. Create a corresponding Runner class
 3. Write scenarios using Gherkin syntax
 4. Run tests using Maven
+5. Push to GitHub to trigger automated CI/CD
 
 ## Troubleshooting
 
