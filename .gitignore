@@ -1,0 +1,29 @@
+# Compiled class files
+*.class
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# IDE files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Test reports
+karate-reports/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
