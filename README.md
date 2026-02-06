@@ -1,7 +1,6 @@
 # Karate API Testing Framework
 
 ![Karate Tests](https://github.com/sivaprkolli/KarateDemo/workflows/Karate%20API%20Tests/badge.svg)
-![CI Matrix](https://github.com/sivaprkolli/KarateDemo/workflows/CI%20Matrix%20Tests/badge.svg)
 
 This project demonstrates API testing using Karate Framework with sample tests for JSONPlaceholder API.
 
@@ -131,30 +130,20 @@ This framework tests the JSONPlaceholder API:
 
 ## CI/CD with GitHub Actions
 
-This project includes multiple GitHub Actions workflows:
+This project uses GitHub Actions for automated testing:
 
-### 1. Karate API Tests (`.github/workflows/karate-tests.yml`)
-- Triggers on push/pull request to main and develop branches
-- Runs tests on Ubuntu with Java 11
-- Generates and uploads HTML reports as artifacts
-- Creates test summary in GitHub Actions UI
+**Workflow**: `.github/workflows/karate-tests.yml`
+- Triggers automatically on push/pull request to main and develop branches
+- Runs all Karate tests on Ubuntu with Java 11
+- Generates Karate and Cucumber HTML reports
+- Uploads reports as downloadable artifacts
+- Creates test summary in the Actions UI
 
-### 2. CI Matrix Tests (`.github/workflows/ci-matrix.yml`)
-- Tests across multiple operating systems (Ubuntu, Windows, macOS)
-- Tests with multiple Java versions (11, 17)
-- Runs weekly on schedule
-- Ensures cross-platform compatibility
-
-### 3. Test Report Publisher (`.github/workflows/test-report.yml`)
-- Publishes test results as GitHub Check
-- Provides detailed test report in PR comments
-- Automatically triggered after test workflow completion
-
-### Viewing CI/CD Results
-- Go to the **Actions** tab in your GitHub repository
-- Click on any workflow run to see details
-- Download HTML reports from the **Artifacts** section
-- View test summaries directly in the workflow output
+**Viewing Results**:
+1. Go to the **Actions** tab in your GitHub repository
+2. Click on any workflow run to see test execution details
+3. Download HTML reports from the **Artifacts** section
+4. View test summaries directly in the workflow output
 
 ## Extending Tests
 
